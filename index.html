@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commutationem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Commutationem</h1>
+      <h3>Check live foreign currency exchange rates</h3>
+    </div>
+    <div class="inner-container">
+      <div class="amount-container">
+        <p class="amount-text">Amount:</p>
+        <input type="number" class="amount-input" placeholder="0.00" min="0" />
+      </div>
+      <div class="from-container">
+        <p class="from-text">From:</p>
+        <select id="opciones-from" name="opciones" class="from-select">
+          <option value="opcion1">USD</option>
+          <option value="opcion2">EUR</option>
+        </select>
+      </div>
+      <div class="to-container">
+        <p class="to-text">To:</p>
+        <select id="opciones-to" name="opciones" class="to-select">
+          <option value="opcion1">EUR</option>
+          <option value="opcion2">USD</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button id="button-calculate" class="convert-button">Convert</button>
+      </div>
+      <div id="results-box" class="results-container">
+        <p class="box-empty-text">Empty...</p>
+      </div>
+    </div>
+    <p class="credits">Created by Lorenzo Drovandi</p>
+    <script src="script.js"></script>
+  </body>
+</html>
