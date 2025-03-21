@@ -4,12 +4,40 @@ let inputFrom = document.getElementById("opciones-from").value;
 let inputTo = document.getElementById("opciones-to").value;
 let resultBox = document.getElementById("results-box");
 let darkMode = document.getElementById("dark-mode-button");
+let boxEmptyText = document.getElementById("box-empty-text");
 const apiKey = "c3eff3653369cb8b3f9f0eaf";
 let baseCurrency = "";
 let targetCurrency = "";
 let conversionResult = 0;
 let finalResult = 0;
 let darkModeActive = false;
+let invalidNumber = false;
+let sameCurrency = false;
+
+function verifyCurrencies() {
+  if (inputFrom === inputTo) {
+    boxEmptyText.textContent = "The selected coins must be different.";
+    sameCurrency = true;
+    ("");
+  } else {
+    sameCurrency = false;
+    boxEmptyText.textContent = "";
+  }
+}
+
+function verifyAmount() {
+  if (
+    inputAmount.value === "" ||
+    isNaN(inputAmount.value) ||
+    inputAmount.value <= 0
+  ) {
+    boxEmptyText.textContent = "Please enter a valid amount.";
+    invalidNumber = true;
+  } else {
+    invalidNumber = false;
+    boxEmptyText.textContent = "";
+  }
+}
 
 function refreshInputResults() {
   inputFrom = document.getElementById("opciones-from").value;
@@ -29,7 +57,7 @@ function excecuteConversion() {
       conversionResult = data.conversion_rates[targetCurrency];
       getResultByAmount();
     })
-    .catch((error) => console.error("Error al obtener las tasas:", error));
+    .catch((error) => console.error("Error", error));
 }
 
 function getResultByAmount() {
@@ -54,9 +82,19 @@ function showResult() {
 }
 
 btnConvert.onclick = () => {
-  refreshInputResults();
-  refreshCurrencies();
-  excecuteConversion();
+  verifyAmount();
+  if (invalidNumber === true) {
+    return;
+  } else {
+    refreshInputResults();
+    verifyCurrencies();
+    if (sameCurrency === true) {
+      return;
+    } else {
+      refreshCurrencies();
+      excecuteConversion();
+    }
+  }
 };
 
 darkMode.onclick = () => {
