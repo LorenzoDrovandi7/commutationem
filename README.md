@@ -20,7 +20,8 @@
 
 ## Deploy
 
-You can check out the live version of **Commutationem** here: [Commutationem]((https://commutationem.vercel.app/))
+You can check out the live version of **Commutationem** here: [Commutationem](https://commutationem.vercel.app/)
+
 
 ## Contributing
 
