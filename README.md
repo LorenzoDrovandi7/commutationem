@@ -18,77 +18,9 @@
 - **API Integration** for fetching real-time exchange rates.
 - **Cypress** for testing functionalities to ensure smooth performance and bug-free experience.
 
-## Getting Started
+## Deploy
 
-### Prerequisites
-
-To run the project locally, you need to have:
-
-- **Node.js** installed
-- A text editor or IDE (such as VS Code)
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/commutationem.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd commutationem
-   ```
-
-3. Install the necessary dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the application locally:
-
-   ```bash
-   npm start
-   ```
-
-5. Open the project in your browser:
-
-   ```bash
-   http://localhost:3000
-   ```
-
-### Testing
-
-To run the tests using Cypress:
-
-1. Install Cypress:
-
-   ```bash
-   npm install cypress --save-dev
-   ```
-
-2. Open the Cypress test runner:
-
-   ```bash
-   npx cypress open
-   ```
-
-3. Run the tests to ensure the application functions as expected.
-
-## API Integration
-
-Commutationem uses an external API to fetch real-time currency conversion data. You will need to sign up for an API key from the currency provider and configure it in the environment variables.
-
-1. Get your API key from [currency API provider].
-2. Create a `.env` file and add your API key:
-
-   ```bash
-   API_KEY=your_api_key_here
-   ```
-
-3. The application will now use this key to make requests to the currency conversion API.
+You can check out the live version of **Commutationem** here: [Commutationem]((https://commutationem.vercel.app/))
 
 ## Contributing
 
