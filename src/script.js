@@ -14,6 +14,23 @@ let darkModeActive = false;
 let invalidNumber = false;
 let sameCurrency = false;
 
+class CurrencyData {
+  constructor(base, date, rates) {
+    this.base = base;
+    this.rates = rates;
+  }
+
+  getRate(toCurrency) {
+    return this.rates[toCurrency] || null;
+  }
+
+  convert(toCurrency, amount) {
+    const rate = this.getRate(toCurrency);
+    if (!rate || isNaN(amount)) return null;
+    return rate * amount;
+  }
+}
+
 function verifyCurrencies() {
   if (inputFrom === inputTo) {
     boxEmptyText.textContent = "The selected coins must be different.";
@@ -26,11 +43,7 @@ function verifyCurrencies() {
 }
 
 function verifyAmount() {
-  if (
-    inputAmount.value === "" ||
-    isNaN(inputAmount.value) ||
-    inputAmount.value <= 0
-  ) {
+  if (inputAmount.value === "" || isNaN(inputAmount.value) || inputAmount.value <= 0) {
     boxEmptyText.textContent = "Please enter a valid amount.";
     invalidNumber = true;
   } else {
@@ -54,15 +67,12 @@ function excecuteConversion() {
   fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`)
     .then((response) => response.json())
     .then((data) => {
-      conversionResult = data.conversion_rates[targetCurrency];
-      getResultByAmount();
+      const currencyData = new CurrencyData(data.base_code, data.time_last_update_utc, data.conversion_rates);
+      conversionResult = currencyData.getRate(targetCurrency);
+      finalResult = currencyData.convert(targetCurrency, inputAmount.value);
+      showResult();
     })
     .catch((error) => console.error("Error", error));
-}
-
-function getResultByAmount() {
-  finalResult = conversionResult * inputAmount.value;
-  showResult();
 }
 
 function cleanResultsBox() {
@@ -100,8 +110,7 @@ btnConvert.onclick = () => {
 darkMode.onclick = () => {
   if (darkModeActive === false) {
     darkModeActive = true;
-    document.getElementById("dark-mode-button").src =
-      "src/images/dark-mode-active.png";
+    document.getElementById("dark-mode-button").src = "src/images/dark-mode-active.png";
     document.body.classList.toggle("body-dark-mode");
     const container = document.querySelector(".container");
     if (container) {
@@ -141,8 +150,7 @@ darkMode.onclick = () => {
     }
   } else {
     darkModeActive = false;
-    document.getElementById("dark-mode-button").src =
-      "src/images/dark-mode-inactive.png";
+    document.getElementById("dark-mode-button").src = "src/images/dark-mode-inactive.png";
     document.body.classList.remove("body-dark-mode");
     const container = document.querySelector(".container");
     if (container) {
