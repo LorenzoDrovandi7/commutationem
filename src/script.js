@@ -120,33 +120,25 @@ darkMode.onclick = () => {
     if (innerContainer) {
       innerContainer.classList.toggle("inner-container-dark-mode");
     }
-    const amountContainer = document.querySelector(".amount-container");
-    if (amountContainer) {
-      amountContainer.classList.toggle("amount-container-dark-mode");
+    const inputAmount = document.getElementById("input-amount");
+    if (inputAmount) {
+      inputAmount.classList.toggle("input-dark-mode");
     }
-    const amountInput = document.querySelector(".amount-input");
-    if (amountInput) {
-      amountInput.classList.toggle("amount-input-dark-mode");
+    const opcionesFrom = document.getElementById("opciones-from");
+    if (opcionesFrom) {
+      opcionesFrom.classList.toggle("select-dark-mode");
     }
-    const fromContainer = document.querySelector(".from-container");
-    if (fromContainer) {
-      fromContainer.classList.toggle("from-container-dark-mode");
+    const opcionesTo = document.getElementById("opciones-to");
+    if (opcionesTo) {
+      opcionesTo.classList.toggle("select-dark-mode");
     }
-    const fromSelect = document.querySelector(".from-select");
-    if (fromSelect) {
-      fromSelect.classList.toggle("select-dark-mode");
+    const button = document.getElementById("button-calculate");
+    if (button) {
+      button.classList.toggle("button-dark-mode");
     }
-    const toContainer = document.querySelector(".to-container");
-    if (toContainer) {
-      toContainer.classList.toggle("to-container-dark-mode");
-    }
-    const toSelect = document.querySelector(".to-select");
-    if (toSelect) {
-      toSelect.classList.toggle("select-dark-mode");
-    }
-    const convertButton = document.querySelector(".convert-button");
-    if (convertButton) {
-      convertButton.classList.toggle("convert-button-dark-mode");
+    const resultsBox = document.getElementById("results-box");
+    if (resultsBox) {
+      resultsBox.classList.toggle("results-box-dark-mode");
     }
   } else {
     darkModeActive = false;
@@ -160,33 +152,25 @@ darkMode.onclick = () => {
     if (innerContainer) {
       innerContainer.classList.remove("inner-container-dark-mode");
     }
-    const amountContainer = document.querySelector(".amount-container");
-    if (amountContainer) {
-      amountContainer.classList.remove("amount-container-dark-mode");
+    const inputAmount = document.getElementById("input-amount");
+    if (inputAmount) {
+      inputAmount.classList.remove("input-dark-mode");
     }
-    const amountInput = document.querySelector(".amount-input");
-    if (amountInput) {
-      amountInput.classList.toggle("amount-input-dark-mode");
+    const opcionesFrom = document.getElementById("opciones-from");
+    if (opcionesFrom) {
+      opcionesFrom.classList.remove("select-dark-mode");
     }
-    const fromContainer = document.querySelector(".from-container");
-    if (fromContainer) {
-      fromContainer.classList.remove("from-container-dark-mode");
+    const opcionesTo = document.getElementById("opciones-to");
+    if (opcionesTo) {
+      opcionesTo.classList.remove("select-dark-mode");
     }
-    const fromSelect = document.querySelector(".from-select");
-    if (fromSelect) {
-      fromSelect.classList.remove("select-dark-mode");
+    const button = document.getElementById("button-calculate");
+    if (button) {
+      button.classList.remove("button-dark-mode");
     }
-    const toContainer = document.querySelector(".to-container");
-    if (toContainer) {
-      toContainer.classList.remove("to-container-dark-mode");
-    }
-    const toSelect = document.querySelector(".to-select");
-    if (toSelect) {
-      toSelect.classList.remove("select-dark-mode");
-    }
-    const convertButton = document.querySelector(".convert-button");
-    if (convertButton) {
-      convertButton.classList.remove("convert-button-dark-mode");
+    const resultsBox = document.getElementById("results-box");
+    if (resultsBox) {
+      resultsBox.classList.remove("results-box-dark-mode");
     }
   }
 };

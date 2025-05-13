@@ -6,675 +6,172 @@ input[type="number"]::-webkit-inner-spin-button {
 
 body {
   font-family: "Lexend Peta", sans-serif;
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.body-dark-mode {
-  background-color: #151027;
-  color: rgb(129, 0, 168);
+#dark-mode-button {
+  padding: 1vh;
+  width: 6vh;
 }
 
-h1 {
-  font-size: 5.5em;
-  font-weight: 400;
-  margin-bottom: 0;
-  margin-top: 1.5%;
-  transition: color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-h3 {
-  font-size: 1.5em;
-  font-weight: 350;
-  margin-top: 0;
-  transition: color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-.container {
-  position: absolute;
-  border: solid 6px #000000;
-  text-align: center;
-  width: 70%;
-  height: 70vh;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.container-dark-mode {
-  border: solid 6px rgb(129, 0, 168);
+.container-xl {
+  border: rgb(172, 172, 172) solid 0.1vh;
+  border-radius: 1%;
+  padding: 0;
+  margin-top: 3vh;
+  transition: border-color 0.3s ease;
 }
 
 .inner-container {
-  position: absolute;
-  border: solid 6px #000000;
-  width: 63%;
-  height: 44vh;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border-top: rgb(172, 172, 172) solid 0.1vh;
+  padding: 1vh;
+  transition: border-top-color 0.3s ease;
 }
 
-.inner-container-dark-mode {
-  border: solid 6px rgb(129, 0, 168);
+.row {
+  padding: 1vh;
 }
 
-.amount-container {
-  position: absolute;
-  border: solid 6px #000000;
-  width: 30%;
-  height: 10vh;
-  top: 11.5%;
-  left: 15.02%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-.amount-container-dark-mode {
-  border: solid 6px rgb(129, 0, 168);
-}
-
-.amount-text {
-  text-align: center;
-  margin-top: 1%;
-}
-
-.amount-input {
-  position: absolute;
-  text-align: center;
-  border: none;
-  left: 3%;
-  top: 40%;
-  width: 92.7%;
-  height: 50%;
-  margin-top: 0;
-  font-size: 3em;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.amount-input-dark-mode {
-  color: rgb(129, 0, 168);
-}
-
-.from-container {
-  position: absolute;
-  border: solid 6px #000000;
-  border-right: none;
-  border-left: none;
-  width: 40%;
-  height: 10vh;
-  top: 11.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-.from-container-dark-mode {
-  border: solid 6px rgb(129, 0, 168);
-  border-right: none;
-  border-left: none;
-}
-
-.from-text {
-  text-align: center;
-  margin-top: 1%;
-}
-
-.from-select {
-  position: absolute;
-  text-align: center;
-  border: none;
-  left: 2.5%;
-  top: 35%;
-  width: 95%;
-  height: 60%;
-  margin-top: 0;
-  font-size: 1.8em;
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-.select-dark-mode {
-  background-color: #151027;
-  color: rgb(129, 0, 168);
-}
-
-.to-container {
-  position: absolute;
-  border: solid 6px #000000;
-  width: 30%;
-  height: 10vh;
-  top: 11.5%;
-  left: 85%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-.to-container-dark-mode {
-  border: solid 6px rgb(129, 0, 168);
-}
-
-.to-text {
-  text-align: center;
-  margin-top: 1%;
-}
-
-.to-select {
-  position: absolute;
-  text-align: center;
-  border: none;
-  left: 1.5%;
-  top: 35%;
-  width: 97%;
-  height: 60%;
-  margin-top: 0;
-  font-size: 1.8em;
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
-}
-
-.convert-button {
-  position: absolute;
-  font-family: "Lexend Peta", sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  border: solid 6px #000000;
+input,
+select {
   width: 100%;
+  height: 5vh;
+  font-size: 2rem;
+}
+
+h1,
+h3 {
+  text-align: center;
+  padding: 1vh;
+}
+
+h1 {
+  font-size: 10vh;
+  padding: 3vh;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+h3 {
+  font-size: 2.5vh;
+  padding-bottom: 2vh;
+}
+
+#input-amount,
+#opciones-from,
+#opciones-to {
+  border: rgb(172, 172, 172) solid 0.1vh;
+}
+
+.button-calculate {
+  width: 98.5%;
   height: 6vh;
-  top: 29%;
-  left: 50%;
-  border-left: none;
-  border-right: none;
-  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: black;
   background-color: white;
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
+  border: rgb(172, 172, 172) solid 0.1vh;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.convert-button:hover {
-  opacity: 0.9;
-  background-color: rgb(110, 110, 110);
+.button-calculate:hover {
+  background-color: rgb(235, 235, 235);
+  color: black;
 }
 
-.convert-button-dark-mode {
-  border: solid 6px rgb(129, 0, 168);
-  border-left: none;
-  border-right: none;
-  color: rgb(129, 0, 168);
-  background-color: #151027;
-}
-
-.convert-button-dark-mode:hover {
-  background-color: #340747;
-}
-
-.results-container {
-  position: absolute;
-  border: none;
-  width: 100%;
-  height: 20vh;
-  margin-top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.results-box {
+  width: 98.5%;
+  height: 30vh;
+  padding: 1vh;
+  margin-top: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  border: rgb(172, 172, 172) solid 0.1vh;
+  background-color: white;
+  color: black;
 }
 
 .box-empty-text {
-  position: absolute;
   text-align: center;
-  top: 32%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 2.5vh;
+  padding-top: 10vh;
 }
 
 .base-currency-amount {
-  position: absolute;
-  font-size: 2em;
-  font-weight: 100;
-  top: 5%;
-  left: 5%;
-  margin: 0;
-  transition: background-color 0.5s, opacity 0.5s, transform 0.5s;
+  text-align: center;
+  font-size: 2.5vh;
+  padding-top: 5vh;
 }
 
 .final-result-amount {
-  position: absolute;
-  font-size: 5em;
-  font-weight: 500;
-  top: 30%;
-  left: 5%;
-  margin: 0;
-}
-
-.dark-mode-inactive {
-  position: absolute;
-  width: 3em;
-  top: 1%;
-  right: 97%;
-  transition: transform 0.5s;
-}
-
-.dark-mode-inactive:hover {
-  transform: scale(1.3);
+  text-align: center;
+  font-size: 10vh;
+  font-weight: bold;
+  padding-top: 0vh;
 }
 
 .credits {
-  position: absolute;
+  margin-top: 5vh;
   text-align: center;
-  top: 92%;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-@media only screen and (max-width: 1480px) {
-  h1 {
-    font-size: 4.5em;
-  }
-  h3 {
-    font-size: 1.5em;
-  }
-  .inner-container {
-    top: 50%;
-  }
-  .box-empty-text {
-    top: 60%;
-  }
-  .dark-mode-inactive {
-    top: 1%;
-    right: 95%;
-  }
-
-  .base-currency-amount {
-    font-size: 1em;
-    top: 5%;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 30%;
-    left: 5%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 70%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 90%;
-    left: 5%;
-  }
+.body-dark-mode {
+  background-color: #121212;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media only screen and (max-width: 1200px) {
-  h1 {
-    font-size: 4em;
-  }
-  h3 {
-    font-size: 1em;
-  }
-  .inner-container {
-    top: 49%;
-  }
-  .box-empty-text {
-    top: 80%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 100%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 120%;
-    left: 5%;
-  }
+.inner-container-dark-mode {
+  border-top: rgb(255, 255, 255) solid 0.1vh;
+  transition: border-top-color 0.3s ease;
 }
 
-@media only screen and (max-width: 1080px) {
-  h1 {
-    font-size: 3.5em;
-  }
-  h3 {
-    font-size: 1em;
-  }
-  .inner-container {
-    top: 46%;
-  }
-  .box-empty-text {
-    top: 80%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 100%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 120%;
-    left: 5%;
-  }
+.container-dark-mode {
+  border: rgb(255, 255, 255) solid 0.1vh;
+  transition: border-color 0.3s ease;
 }
 
-@media only screen and (max-width: 1024px) {
-  .container {
-    width: 85%;
-    height: 75vh;
-    top: 45%;
-  }
-
-  .inner-container {
-    width: 80%;
-    height: 50vh;
-    top: 49%;
-  }
-
-  h1 {
-    font-size: 4em;
-  }
-
-  h3 {
-    font-size: 1.3em;
-  }
-
-  .amount-container,
-  .to-container {
-    width: 30%;
-    height: 11vh;
-  }
-
-  .from-container {
-    width: 39%;
-    height: 11vh;
-  }
-
-  .amount-input {
-    font-size: 2.2em;
-  }
-
-  .from-select,
-  .to-select {
-    font-size: 1.4em;
-  }
-
-  .box-empty-text {
-    position: absolute;
-    text-align: center;
-    top: 140%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .convert-button {
-    width: 100.3%;
-    top: 28%;
-  }
-
-  .dark-mode-inactive {
-    position: absolute;
-    width: 3em;
-    top: 1%;
-    right: 94%;
-    transition: transform 0.5s;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 800%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 100%;
-    left: 5%;
-  }
+.input-dark-mode {
+  border: rgb(255, 255, 255) solid 0.1vh;
+  background-color: #121212;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media only screen and (max-width: 900px) {
-  h1 {
-    font-size: 3em;
-  }
-  h3 {
-    font-size: 1em;
-  }
-  .box-empty-text {
-    top: 80%;
-  }
-  .dark-mode-inactive {
-    right: 93%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 140%;
-    left: 5%;
-  }
+.input-dark-mode:focus {
+  background-color: #6e6e6e;
+  border-color: white;
+  color: white;
+  outline: none;
 }
 
-@media only screen and (max-width: 660px) {
-  h1 {
-    font-size: 2.6em;
-  }
-  h3 {
-    font-size: 1em;
-  }
-  .container {
-    height: 65vh;
-  }
-  .inner-container {
-    top: 49%;
-  }
-  .box-empty-text {
-    top: 120%;
-  }
-  .dark-mode-inactive {
-    right: 92%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 140%;
-    left: 5%;
-  }
+.input-dark-mode::placeholder {
+  color: white;
 }
 
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 2.6em;
-  }
-  h3 {
-    font-size: 0.9em;
-  }
-  .container {
-    height: 65vh;
-  }
-  .inner-container {
-    top: 49%;
-  }
-  .box-empty-text {
-    top: 140%;
-  }
-  .dark-mode-inactive {
-    right: 90%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 140%;
-    left: 5%;
-  }
+.select-dark-mode {
+  border: rgb(255, 255, 255) solid 0.1vh;
+  background-color: #121212;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media only screen and (max-width: 570px) {
-  h1 {
-    font-size: 2.2em;
-  }
-  h3 {
-    font-size: 0.7em;
-  }
-  .inner-container {
-    top: 48%;
-  }
-  .amount-input {
-    font-size: 1.5em;
-  }
-  .from-select {
-    font-size: 1em;
-    position: absolute;
-    width: 80%;
-    left: 10%;
-  }
-  .to-select {
-    font-size: 1em;
-    position: absolute;
-    width: 80%;
-    left: 10%;
-  }
-  .box-empty-text {
-    top: 140%;
-  }
-  .dark-mode-inactive {
-    right: 88%;
-    width: 2em;
-  }
-  .credits {
-    font-size: 0.6em;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 140%;
-    left: 5%;
-  }
+.button-dark-mode {
+  color: white;
+  background-color: #121212;
+  border: rgb(255, 255, 255) solid 0.1vh;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-@media only screen and (max-width: 500px) {
-  h1 {
-    font-size: 2em;
-  }
-  h3 {
-    font-size: 0.6em;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 140%;
-    left: 5%;
-  }
+.button-dark-mode:hover {
+  color: white;
+  background-color: #6e6e6e;
+  border: rgb(255, 255, 255) solid 0.1vh;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-@media only screen and (max-width: 440px) {
-  h1 {
-    font-size: 1.7em;
-  }
-  h3 {
-    font-size: 0.6em;
-  }
-  .amount-text,
-  .from-text,
-  .to-text,
-  .convert-button {
-    font-size: 0.8em;
-  }
-  .dark-mode-inactive {
-    right: 85%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 2em;
-    top: 140%;
-    left: 5%;
-  }
-}
-
-@media only screen and (max-width: 370px) {
-  h1 {
-    font-size: 1.5em;
-  }
-  h3 {
-    font-size: 0.5em;
-  }
-  .dark-mode-inactive {
-    right: 85%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 1.5em;
-    top: 140%;
-    left: 5%;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  h1 {
-    font-size: 1.2em;
-  }
-  h3 {
-    font-size: 0.4em;
-  }
-  .dark-mode-inactive {
-    right: 85%;
-  }
-  .base-currency-amount {
-    font-size: 1em;
-    top: 120%;
-    font-weight: 200;
-    left: 5%;
-  }
-
-  .final-result-amount {
-    font-size: 1.5em;
-    top: 140%;
-    left: 5%;
-  }
+.results-box-dark-mode {
+  background-color: #121212;
+  color: white;
+  border: rgb(255, 255, 255) solid 0.1vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
