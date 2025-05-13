@@ -14,26 +14,34 @@
       crossorigin="anonymous" />
     <link rel="stylesheet" href="src/styles.css" />
   </head>
+
   <body>
     <div class="dark-mode-container">
-      <img id="dark-mode-button" class="dark-mode-inactive" src="src/images/dark-mode-inactive.png" />
+      <img
+        id="dark-mode-button"
+        class="dark-mode-inactive"
+        src="src/images/dark-mode-inactive.png"
+        alt="Botón modo oscuro" />
     </div>
-    <div class="container-xl shadow-lg container">
-      <h1>Commutationem</h1>
-      <h3>Check live foreign currency exchange rates</h3>
-      <div class="inner-container container text-center">
+
+    <main class="container-xl shadow-lg">
+      <header>
+        <h1>Commutationem</h1>
+        <h3>Check live foreign currency exchange rates</h3>
+      </header>
+      <form class="inner-container container text-center">
         <div class="row align-items-center">
           <div class="amount-container col-4">
-            <p class="amount-text">Amount:</p>
+            <label for="input-amount" class="form-label amount-text">Amount:</label>
             <input id="input-amount" type="number" class="form-control form-control-lg mb-3" placeholder="0" min="0" />
           </div>
           <div class="from-container col-4">
-            <p class="from-text">From:</p>
+            <label for="opciones-from" class="form-label from-text">From:</label>
             <select
               id="opciones-from"
-              name="opciones"
+              name="opciones-from"
               class="form-select form-select-lg mb-3"
-              aria-label="Large select example">
+              aria-label="Select first currency">
               <option value="AED">AED - UAE Dirham</option>
               <option value="AFN">AFN - Afghan Afghani</option>
               <option value="ALL">ALL - Albanian Lek</option>
@@ -199,9 +207,12 @@
             </select>
           </div>
           <div class="to-container col-4">
-            <p class="to-text">To:</p>
-            <select id="opciones-to" name="opciones" class="form-select form-select-lg mb-3"
-            aria-label="Large select example>
+            <label for="opciones-to" class="form-label to-text">To:</label>
+            <select
+              id="opciones-to"
+              name="opciones-to"
+              class="form-select form-select-lg mb-3"
+              aria-label="Select second currency">
               <option value="AED">AED - UAE Dirham</option>
               <option value="AFN">AFN - Afghan Afghani</option>
               <option value="ALL">ALL - Albanian Lek</option>
@@ -368,15 +379,19 @@
           </div>
         </div>
         <div class="button-container">
-          <button id="button-calculate" type="button" class="btn btn-secondary btn-lg btn-block button-calculate">Convert</button>
+          <button id="button-calculate" type="button" class="btn btn-secondary btn-lg btn-block button-calculate">
+            Convert
+          </button>
         </div>
         <div id="results-box" class="alert alert-dark results-box" role="alert">
           <p id="box-empty-text" class="box-empty-text">Empty...</p>
         </div>
-      </div>
-    </div>
+      </form>
+    </main>
 
-    <p class="credits">Created by Lorenzo Drovandi</p>
+    <footer>
+      <p class="credits">Created by Lorenzo Drovandi</p>
+    </footer>
     <script src="src/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

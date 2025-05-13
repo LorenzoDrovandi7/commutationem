@@ -1,11 +1,18 @@
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+:root {
+  --primary-bg: white;
+  --secondary-bg: #121212;
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --border-color: rgb(172, 172, 172);
+  --soft-highlight-color: #cfcfcf;
+  --highlight-color: #6e6e6e;
+  --font-family: "Lexend Peta", sans-serif;
 }
 
 body {
-  font-family: "Lexend Peta", sans-serif;
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--primary-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -15,7 +22,7 @@ body {
 }
 
 .container-xl {
-  border: rgb(172, 172, 172) solid 0.1vh;
+  border: var(--border-color) solid 0.1vh;
   border-radius: 1%;
   padding: 0;
   margin-top: 3vh;
@@ -23,7 +30,7 @@ body {
 }
 
 .inner-container {
-  border-top: rgb(172, 172, 172) solid 0.1vh;
+  border-top: var(--border-color) solid 0.1vh;
   padding: 1vh;
   transition: border-top-color 0.3s ease;
 }
@@ -60,7 +67,7 @@ h3 {
 #input-amount,
 #opciones-from,
 #opciones-to {
-  border: rgb(172, 172, 172) solid 0.1vh;
+  border: var(--border-color) solid 0.1vh;
 }
 
 .button-calculate {
@@ -68,32 +75,36 @@ h3 {
   height: 6vh;
   font-size: 1.5rem;
   color: black;
-  background-color: white;
-  border: rgb(172, 172, 172) solid 0.1vh;
+  background-color: var(--primary-bg);
+  border: var(--border-color) solid 0.1vh;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .button-calculate:hover {
-  background-color: rgb(235, 235, 235);
+  background-color: var(--soft-highlight-color);
   color: black;
 }
 
 .results-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 98.5%;
   height: 30vh;
   padding: 1vh;
   margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
-  border: rgb(172, 172, 172) solid 0.1vh;
-  background-color: white;
+  border: var(--border-color) solid 0.1vh;
+  background-color: var(--primary-bg);
   color: black;
 }
 
 .box-empty-text {
   text-align: center;
   font-size: 2.5vh;
-  padding-top: 10vh;
+  padding-top: 4vh;
 }
 
 .base-currency-amount {
@@ -110,68 +121,176 @@ h3 {
 }
 
 .credits {
-  margin-top: 5vh;
+  margin-top: 4vh;
+  margin-bottom: 0;
   text-align: center;
 }
 
 .body-dark-mode {
-  background-color: #121212;
-  color: white;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.inner-container-dark-mode {
-  border-top: rgb(255, 255, 255) solid 0.1vh;
-  transition: border-top-color 0.3s ease;
-}
-
-.container-dark-mode {
-  border: rgb(255, 255, 255) solid 0.1vh;
-  transition: border-color 0.3s ease;
-}
-
 .input-dark-mode {
-  border: rgb(255, 255, 255) solid 0.1vh;
-  background-color: #121212;
-  color: white;
+  border: var(--secondary-color) solid 0.1vh;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .input-dark-mode:focus {
-  background-color: #6e6e6e;
-  border-color: white;
-  color: white;
+  background-color: var(--highlight-color);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
   outline: none;
 }
 
 .input-dark-mode::placeholder {
-  color: white;
+  color: var(--secondary-color);
 }
 
 .select-dark-mode {
-  border: rgb(255, 255, 255) solid 0.1vh;
-  background-color: #121212;
-  color: white;
+  border: var(--secondary-color) solid 0.1vh;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .button-dark-mode {
-  color: white;
-  background-color: #121212;
-  border: rgb(255, 255, 255) solid 0.1vh;
+  color: var(--secondary-color);
+  background-color: var(--secondary-bg);
+  border: var(--border-color) solid 0.1vh;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .button-dark-mode:hover {
-  color: white;
-  background-color: #6e6e6e;
-  border: rgb(255, 255, 255) solid 0.1vh;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: var(--secondary-color);
+  background-color: var(--highlight-color);
+  border: var(--secondary-color) solid 0.1vh;
 }
 
 .results-box-dark-mode {
-  background-color: #121212;
-  color: white;
-  border: rgb(255, 255, 255) solid 0.1vh;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-color);
+  border: var(--border-color) solid 0.1vh;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media screen and (min-width: 360px) {
+  .container-xl {
+    margin-top: 0;
+  }
+  h1 {
+    font-size: 4vh;
+  }
+
+  h3 {
+    font-size: 1.2vh;
+    padding: 1vh;
+  }
+
+  .row {
+    display: block;
+  }
+
+  .form-label {
+    font-size: 1.5vh;
+    margin: 0;
+  }
+
+  #input-amount,
+  #opciones-from,
+  #opciones-to {
+    font-size: 1.5vh;
+    height: 5vh;
+  }
+
+  .col-4 {
+    width: 100%;
+  }
+
+  .button-calculate {
+    font-size: 2vh;
+  }
+
+  .results-box {
+    height: 24vh;
+    padding: 2vh;
+  }
+
+  .final-result-amount {
+    font-size: 4vh;
+  }
+
+  .credits {
+    font-size: 1.5vh;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container-xl {
+    margin-top: 3vh;
+  }
+  h1 {
+    font-size: 10vh;
+  }
+
+  h3 {
+    font-size: 2.5vh;
+    padding-bottom: 2vh;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .form-label {
+    margin: 0.5vh;
+  }
+
+  #input-amount,
+  #opciones-from,
+  #opciones-to {
+    font-size: 2vh;
+    height: 5vh;
+  }
+
+  .col-4 {
+    width: 33.33333333%;
+  }
+
+  .results-box {
+    height: 33vh;
+    padding: 2vh;
+  }
+
+  .final-result-amount {
+    font-size: 8vh;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  h1 {
+    font-size: 9vh;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  h1 {
+    font-size: 7vh;
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  .container-xl {
+    max-width: 90%;
+    padding-bottom: 5vh;
+  }
+  .container {
+    max-width: 90%;
+  }
+  h1 {
+    font-size: 7vh;
+  }
 }
