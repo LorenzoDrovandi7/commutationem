@@ -9,11 +9,55 @@
   --font-family: "Lexend Peta", sans-serif;
 }
 
+/* ========== Base Reset ========== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   font-family: var(--font-family);
   background-color: var(--primary-bg);
   color: var(--primary-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2 {
+  text-align: center;
+  padding: 1vh;
+}
+
+h1 {
+  font-size: 4vh;
+  padding-top: 3vh;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.2vh;
+}
+
+input,
+select {
+  width: 100%;
+  height: 5vh;
+  font-size: 1.8rem;
+}
+
+.form-label {
+  font-size: 1.5vh;
+}
+
+.row {
+  display: block;
+  padding: 1vh;
+}
+
+.col-4 {
+  width: 100%;
 }
 
 #dark-mode-button {
@@ -21,122 +65,93 @@ body {
   width: 6vh;
 }
 
+/* ========== Estructura principal ========== */
+
 .container-xl {
-  border: var(--border-color) solid 0.1vh;
+  border: 0.1vh solid var(--border-color);
   border-radius: 1%;
+  margin-top: 0;
   padding: 0;
-  margin-top: 3vh;
-  transition: border-color 0.3s ease;
 }
 
 .inner-container {
-  border-top: var(--border-color) solid 0.1vh;
+  border-top: 0.1vh solid var(--border-color);
   padding: 1vh;
-  transition: border-top-color 0.3s ease;
-}
-
-.row {
-  padding: 1vh;
-}
-
-input,
-select {
-  width: 100%;
-  height: 5vh;
-  font-size: 2rem;
-}
-
-h1,
-h3 {
-  text-align: center;
-  padding: 1vh;
-}
-
-h1 {
-  font-size: 10vh;
-  padding: 3vh;
-  padding-bottom: 0;
-  margin: 0;
-}
-
-h3 {
-  font-size: 2.5vh;
-  padding-bottom: 2vh;
 }
 
 #input-amount,
 #opciones-from,
 #opciones-to {
-  border: var(--border-color) solid 0.1vh;
+  border: 0.1vh solid var(--border-color);
+  font-size: 1.5vh;
 }
 
 .button-calculate {
   width: 98.5%;
   height: 6vh;
-  font-size: 1.5rem;
-  color: black;
+  font-size: 2vh;
+  color: var(--primary-color);
   background-color: var(--primary-bg);
-  border: var(--border-color) solid 0.1vh;
+  border: 0.1vh solid var(--border-color);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .button-calculate:hover {
   background-color: var(--soft-highlight-color);
-  color: black;
 }
 
 .results-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 98.5%;
-  height: 30vh;
-  padding: 1vh;
-  margin-top: 3vh;
-  margin-left: auto;
-  margin-right: auto;
-  border: var(--border-color) solid 0.1vh;
+  height: 24vh;
+  margin: 3vh auto 0;
+  padding: 2vh;
+  border: 0.1vh solid var(--border-color);
   background-color: var(--primary-bg);
-  color: black;
+  color: var(--primary-color);
 }
 
-.box-empty-text {
-  text-align: center;
-  font-size: 2.5vh;
-  padding-top: 4vh;
-}
-
+.box-empty-text,
 .base-currency-amount {
   text-align: center;
   font-size: 2.5vh;
+}
+
+.base-currency-amount {
   padding-top: 5vh;
 }
 
+.box-empty-text {
+  padding-top: 4vh;
+}
+
 .final-result-amount {
-  text-align: center;
-  font-size: 10vh;
+  font-size: 4vh;
   font-weight: bold;
-  padding-top: 0vh;
+  text-align: center;
 }
 
 .credits {
-  margin-top: 4vh;
-  margin-bottom: 0;
+  font-size: 1.5vh;
   text-align: center;
+  margin-top: 3vh;
 }
+
+/* ========== Dark Mode ========== */
 
 .body-dark-mode {
   background-color: var(--secondary-bg);
   color: var(--secondary-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.input-dark-mode {
-  border: var(--secondary-color) solid 0.1vh;
+.input-dark-mode,
+.select-dark-mode {
   background-color: var(--secondary-bg);
   color: var(--secondary-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 0.1vh solid var(--secondary-color);
 }
 
 .input-dark-mode:focus {
@@ -150,93 +165,35 @@ h3 {
   color: var(--secondary-color);
 }
 
-.select-dark-mode {
-  border: var(--secondary-color) solid 0.1vh;
-  background-color: var(--secondary-bg);
-  color: var(--secondary-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 .button-dark-mode {
-  color: var(--secondary-color);
   background-color: var(--secondary-bg);
-  border: var(--border-color) solid 0.1vh;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: var(--secondary-color);
+  border: 0.1vh solid var(--border-color);
 }
 
 .button-dark-mode:hover {
-  color: var(--secondary-color);
   background-color: var(--highlight-color);
-  border: var(--secondary-color) solid 0.1vh;
+  border: 0.1vh solid var(--secondary-color);
 }
 
 .results-box-dark-mode {
   background-color: var(--secondary-bg);
   color: var(--secondary-color);
-  border: var(--border-color) solid 0.1vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 0.1vh solid var(--border-color);
 }
 
-@media screen and (min-width: 360px) {
-  .container-xl {
-    margin-top: 0;
-  }
-  h1 {
-    font-size: 4vh;
-  }
-
-  h3 {
-    font-size: 1.2vh;
-    padding: 1vh;
-  }
-
-  .row {
-    display: block;
-  }
-
-  .form-label {
-    font-size: 1.5vh;
-    margin: 0;
-  }
-
-  #input-amount,
-  #opciones-from,
-  #opciones-to {
-    font-size: 1.5vh;
-    height: 5vh;
-  }
-
-  .col-4 {
-    width: 100%;
-  }
-
-  .button-calculate {
-    font-size: 2vh;
-  }
-
-  .results-box {
-    height: 24vh;
-    padding: 2vh;
-  }
-
-  .final-result-amount {
-    font-size: 4vh;
-  }
-
-  .credits {
-    font-size: 1.5vh;
-  }
-}
+/* ========== Media Queries ========== */
 
 @media screen and (min-width: 1280px) {
   .container-xl {
     margin-top: 3vh;
   }
+
   h1 {
     font-size: 10vh;
   }
 
-  h3 {
+  h2 {
     font-size: 2.5vh;
     padding-bottom: 2vh;
   }
@@ -253,20 +210,23 @@ h3 {
   #opciones-from,
   #opciones-to {
     font-size: 2vh;
-    height: 5vh;
   }
 
   .col-4 {
-    width: 33.33333333%;
+    width: 33.333%;
   }
 
   .results-box {
     height: 33vh;
-    padding: 2vh;
   }
 
   .final-result-amount {
     font-size: 8vh;
+  }
+
+  .credits {
+    font-size: 2vh;
+    margin-top: 3.5vh;
   }
 }
 
@@ -283,13 +243,12 @@ h3 {
 }
 
 @media screen and (min-width: 3840px) {
-  .container-xl {
+  .container-xl,
+  .container {
     max-width: 90%;
     padding-bottom: 5vh;
   }
-  .container {
-    max-width: 90%;
-  }
+
   h1 {
     font-size: 7vh;
   }
