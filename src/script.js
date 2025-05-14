@@ -1,18 +1,16 @@
 const btnConvert = document.getElementById("button-calculate");
 let inputAmount = document.getElementById("input-amount");
-let inputFrom = document.getElementById("opciones-from").value;
-let inputTo = document.getElementById("opciones-to").value;
 let resultBox = document.getElementById("results-box");
 let darkMode = document.getElementById("dark-mode-button");
 let boxEmptyText = document.getElementById("box-empty-text");
 const apiKey = "c3eff3653369cb8b3f9f0eaf";
-let baseCurrency = "";
-let targetCurrency = "";
-let conversionResult = 0;
-let finalResult = 0;
-let darkModeActive = false;
-let invalidNumber = false;
-let sameCurrency = false;
+const appState = {
+  baseCurrency: "",
+  targetCurrency: "",
+  conversionResult: 0,
+  finalResult: 0,
+  darkModeActive: false,
+};
 
 class CurrencyData {
   constructor(base, date, rates) {
@@ -34,21 +32,20 @@ class CurrencyData {
 function verifyCurrencies() {
   if (inputFrom === inputTo) {
     boxEmptyText.textContent = "The selected coins must be different.";
-    sameCurrency = true;
-    ("");
+    return false;
   } else {
-    sameCurrency = false;
     boxEmptyText.textContent = "";
+    return true;
   }
 }
 
 function verifyAmount() {
   if (inputAmount.value === "" || isNaN(inputAmount.value) || inputAmount.value <= 0) {
     boxEmptyText.textContent = "Please enter a valid amount.";
-    invalidNumber = true;
+    return false;
   } else {
-    invalidNumber = false;
     boxEmptyText.textContent = "";
+    return true;
   }
 }
 
@@ -59,20 +56,23 @@ function refreshInputResults() {
 }
 
 function refreshCurrencies() {
-  baseCurrency = inputFrom;
-  targetCurrency = inputTo;
+  appState.baseCurrency = inputFrom;
+  appState.targetCurrency = inputTo;
 }
 
-function excecuteConversion() {
-  fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`)
+function executeConversion() {
+  fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${appState.baseCurrency}`)
     .then((response) => response.json())
     .then((data) => {
       const currencyData = new CurrencyData(data.base_code, data.time_last_update_utc, data.conversion_rates);
-      conversionResult = currencyData.getRate(targetCurrency);
-      finalResult = currencyData.convert(targetCurrency, inputAmount.value);
+      conversionResult = currencyData.getRate(appState.targetCurrency);
+      finalResult = currencyData.convert(appState.targetCurrency, inputAmount.value);
       showResult();
     })
-    .catch((error) => console.error("Error", error));
+    .catch((error) => {
+      console.error("Error", error);
+      boxEmptyText.textContent = "Something went wrong. Please try again.";
+    });
 }
 
 function cleanResultsBox() {
@@ -85,92 +85,39 @@ function showResult() {
   const finalResultAmount = document.createElement("p");
   baseCurrencyAmount.className = "base-currency-amount";
   finalResultAmount.className = "final-result-amount";
-  baseCurrencyAmount.innerHTML = `${inputAmount.value} ${baseCurrency} =`;
-  finalResultAmount.innerHTML = `${finalResult.toFixed(2)} ${targetCurrency}`;
+  baseCurrencyAmount.innerHTML = `${inputAmount.value} ${appState.baseCurrency} =`;
+  finalResultAmount.innerHTML = `${finalResult.toFixed(2)} ${appState.targetCurrency}`;
   resultBox.appendChild(baseCurrencyAmount);
   resultBox.appendChild(finalResultAmount);
 }
 
 btnConvert.onclick = () => {
-  verifyAmount();
-  if (invalidNumber === true) {
-    return;
-  } else {
-    refreshInputResults();
-    verifyCurrencies();
-    if (sameCurrency === true) {
-      return;
-    } else {
-      refreshCurrencies();
-      excecuteConversion();
-    }
-  }
+  refreshInputResults();
+  if (!verifyAmount()) return;
+  if (!verifyCurrencies()) return;
+  refreshCurrencies();
+  executeConversion();
 };
 
 darkMode.onclick = () => {
-  if (darkModeActive === false) {
-    darkModeActive = true;
-    document.getElementById("dark-mode-button").src = "src/images/dark-mode-active.png";
-    document.body.classList.toggle("body-dark-mode");
-    const container = document.querySelector(".container");
-    if (container) {
-      container.classList.toggle("container-dark-mode");
-    }
-    const innerContainer = document.querySelector(".inner-container");
-    if (innerContainer) {
-      innerContainer.classList.toggle("inner-container-dark-mode");
-    }
-    const inputAmount = document.getElementById("input-amount");
-    if (inputAmount) {
-      inputAmount.classList.toggle("input-dark-mode");
-    }
-    const opcionesFrom = document.getElementById("opciones-from");
-    if (opcionesFrom) {
-      opcionesFrom.classList.toggle("select-dark-mode");
-    }
-    const opcionesTo = document.getElementById("opciones-to");
-    if (opcionesTo) {
-      opcionesTo.classList.toggle("select-dark-mode");
-    }
-    const button = document.getElementById("button-calculate");
-    if (button) {
-      button.classList.toggle("button-dark-mode");
-    }
-    const resultsBox = document.getElementById("results-box");
-    if (resultsBox) {
-      resultsBox.classList.toggle("results-box-dark-mode");
-    }
-  } else {
-    darkModeActive = false;
-    document.getElementById("dark-mode-button").src = "src/images/dark-mode-inactive.png";
-    document.body.classList.remove("body-dark-mode");
-    const container = document.querySelector(".container");
-    if (container) {
-      container.classList.remove("container-dark-mode");
-    }
-    const innerContainer = document.querySelector(".inner-container");
-    if (innerContainer) {
-      innerContainer.classList.remove("inner-container-dark-mode");
-    }
-    const inputAmount = document.getElementById("input-amount");
-    if (inputAmount) {
-      inputAmount.classList.remove("input-dark-mode");
-    }
-    const opcionesFrom = document.getElementById("opciones-from");
-    if (opcionesFrom) {
-      opcionesFrom.classList.remove("select-dark-mode");
-    }
-    const opcionesTo = document.getElementById("opciones-to");
-    if (opcionesTo) {
-      opcionesTo.classList.remove("select-dark-mode");
-    }
-    const button = document.getElementById("button-calculate");
-    if (button) {
-      button.classList.remove("button-dark-mode");
-    }
-    const resultsBox = document.getElementById("results-box");
-    if (resultsBox) {
-      resultsBox.classList.remove("results-box-dark-mode");
-    }
-  }
+  appState.darkModeActive = !appState.darkModeActive;
+  document.getElementById("dark-mode-button").src = appState.darkModeActive
+    ? "src/images/dark-mode-active.png"
+    : "src/images/dark-mode-inactive.png";
+
+  const modeClasses = [
+    { selector: "body", class: "body-dark-mode" },
+    { selector: ".container", class: "container-dark-mode" },
+    { selector: ".inner-container", class: "inner-container-dark-mode" },
+    { selector: "#input-amount", class: "input-dark-mode" },
+    { selector: "#opciones-from", class: "select-dark-mode" },
+    { selector: "#opciones-to", class: "select-dark-mode" },
+    { selector: "#button-calculate", class: "button-dark-mode" },
+    { selector: "#results-box", class: "results-box-dark-mode" },
+  ];
+
+  modeClasses.forEach(({ selector, class: cls }) => {
+    const el = document.querySelector(selector);
+    if (el) el.classList.toggle(cls);
+  });
 };

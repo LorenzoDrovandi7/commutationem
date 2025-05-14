@@ -9,8 +9,6 @@
   --font-family: "Lexend Peta", sans-serif;
 }
 
-/* ========== Base Reset ========== */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -65,8 +63,6 @@ select {
   width: 6vh;
 }
 
-/* ========== Estructura principal ========== */
-
 .container-xl {
   border: 0.1vh solid var(--border-color);
   border-radius: 1%;
@@ -84,6 +80,7 @@ select {
 #opciones-to {
   border: 0.1vh solid var(--border-color);
   font-size: 1.5vh;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .button-calculate {
@@ -180,6 +177,13 @@ select {
   background-color: var(--secondary-bg);
   color: var(--secondary-color);
   border: 0.1vh solid var(--border-color);
+}
+
+.button-calculate,
+.button-dark-mode,
+.results-box,
+.results-box-dark-mode {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ========== Media Queries ========== */
