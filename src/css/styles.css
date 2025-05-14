@@ -104,7 +104,7 @@ select {
   justify-content: center;
   width: 98.5%;
   height: 24vh;
-  margin: 3vh auto 0;
+  margin: 3vh auto 1vh;
   padding: 2vh;
   border: 0.1vh solid var(--border-color);
   background-color: var(--primary-bg);
