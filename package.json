@@ -5,6 +5,10 @@
     "@babel/preset-env": "^7.27.2",
     "babel-jest": "^29.7.0",
     "cypress": "^14.2.0",
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-uglify": "^3.0.2",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0"
   },
@@ -17,5 +21,12 @@
   },
   "jest": {
     "testEnvironment": "jsdom"
-  }
+  },
+  "name": "commutationem",
+  "version": "1.0.0",
+  "description": "**Commutationem** is a currency conversion web application that allows users to quickly and easily convert between different currencies. This project features a clean user interface, dark mode toggle, and includes various validations to ensure accurate input. It is designed to be responsive, providing a seamless experience across all devices.",
+  "main": "cypress.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
